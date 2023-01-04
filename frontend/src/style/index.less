@@ -1,21 +1,4 @@
-.listItem input {
-    display: none;
-}
+@import 'checkbox.less';
 
-.listItem span {
-    display: inline-block;
-    height: var(--bs-body-font-size);
-    width: var(--bs-body-font-size);
-    border: 1px solid gray;
-    border-radius: var(--bs-body-font-size);
-}
-
-.listItem input:checked + span {
-    background-color: lightblue;
-}
-
-.listItem input:checked + span::before {
-    content: '\2714';
-    position: absolute;
-    top: 6px;
-}
+@checkbox-time: 0.1s;
+@checkbox-active-color: #40c0d1;

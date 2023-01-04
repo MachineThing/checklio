@@ -1,0 +1,82 @@
+.listItem {
+    user-select: none;
+}
+
+.listItem input {
+    display: none;
+}
+
+.listItem p {
+    display: inline;
+    margin-left: 5px;
+    position: relative;
+    bottom: 1px;
+}
+
+.listItem .check-border {
+    position: relative;
+    display: inline-block;
+    height: var(--bs-body-font-size);
+    width: var(--bs-body-font-size);
+    border: 2px solid gray;
+    border-radius: var(--bs-body-font-size);
+
+    background-color: gray;
+    
+    transition-property: border-color background-color;
+    transition-duration: @checkbox-time;
+    transition-timing-function: ease;
+}
+
+.listItem .check-border .check-back {
+    position: absolute;
+    display: inline-block;
+    height: calc(var(--bs-body-font-size) - 0.25rem);
+    width: calc(var(--bs-body-font-size) - 0.25rem);
+    
+    border-radius: var(--bs-body-font-size);
+
+    background-color: var(--bs-body-bg);
+
+    transition-property: transform background-color;
+    transition-duration: @checkbox-time;
+    transition-timing-function: ease;
+}
+
+.listItem svg {
+    position: absolute;
+    display: inline-block;
+    stroke: white;
+    stroke-width: 3px;
+    stroke-dashoffset: 23;
+    stroke-dasharray: 23;
+    
+    transition-property: stroke-dashoffset;
+    transition-duration: @checkbox-time;
+    transition-timing-function: ease;
+}
+
+.listItem p {
+    opacity: 1;
+
+    transition-property: opacity;
+    transition-duration: @checkbox-time;
+    transition-timing-function: ease;
+}
+
+.listItem input:checked + .check-border .check-back {
+    transform: scale(0,0);
+}
+
+.listItem input:checked + .check-border {
+    border-color: @checkbox-active-color;
+    background-color: @checkbox-active-color;
+}
+
+.listItem input:checked + .check-border svg {
+    stroke-dashoffset: 0;
+}
+
+.listItem input:checked ~ p {
+    opacity: 0.5;
+}
