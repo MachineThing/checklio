@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
-import { newTodo } from './fetcher';
+import { fetchMan } from './fetcher';
 
 const Title = (props) => {
     const [value, setValue] = useState("");
@@ -10,7 +10,15 @@ const Title = (props) => {
             <h1>{props.name}</h1>
             <form onSubmit={(event) => {
                 event.preventDefault();
-                newTodo(value);
+
+                // Add todo
+                fetchMan({
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({title: value})
+                }).then((data) => {props.update();});
                 
                 setValue("");
             }} className="d-flex">
@@ -21,7 +29,7 @@ const Title = (props) => {
     );
 }
 
-export const Item = (props) => {
+const Item = (props) => {
     return(
         <li className="list-group-item">
             <label className="listItem">
@@ -38,12 +46,30 @@ export const Item = (props) => {
     );
 }
 
+const ItemContainer = (props) => {
+    return props.items.map(m => <Item key={m.id}>{m.value}</Item>)
+}
+
 export const List = () => {
+    // Get items
+    const [items, setItems] = useState([]);
+
+    const update = () => {
+        fetchMan({
+            method: 'GET'
+        }).then((data) => {setItems(data)});
+    }
+
+    // Fire once
+    useEffect(() => {
+        update();
+    }, []);
+
     return(
         <div className="col-md-8 offset-md-2">
             <ul className="list-group">
-                <Title name="My List"></Title>
-                <Item>Create this app</Item>
+                <Title name="My List" update={update}></Title>
+                <ItemContainer items={items}/>
             </ul>
         </div>
     );
