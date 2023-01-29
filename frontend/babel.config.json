@@ -1,4 +1,6 @@
 {
+    "targets": "chrome 42, edge 14, firefox 40, opera 29, safari 10.1, not ie 11",
+    
     "presets": [
         "@babel/preset-env",
         "@babel/preset-react"
