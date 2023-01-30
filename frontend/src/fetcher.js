@@ -1,9 +1,15 @@
 export const fetchMan = (input) => {
-    return new Promise((success) => {
+    // Fetch API wrapper
+    return new Promise((success, failure) => {
         fetch(`http://${window.location.host}/api`, input)
-            .then((response)=>response.json())
-            .then((data) => {
-                success(data);
+            .then((response)=>{
+                if (response.status >= 200 && response.status <= 299) {
+                    // If status code is a success status code
+                    success(response.json(), response.status)
+                } else {
+                    // If status code is anything else
+                    failure(response.status)
+                }
             });
     });
 }

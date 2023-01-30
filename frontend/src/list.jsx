@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 import { fetchMan } from './fetcher';
 
 const Title = (props) => {
+    // The title of the page, also holds the input form.
     const [value, setValue] = useState("");
 
     return(
@@ -47,6 +48,7 @@ const Item = (props) => {
 }
 
 const ItemContainer = (props) => {
+    // Item container for holding item components
     return props.items.map(m => <Item key={m.id}>{m.value}</Item>)
 }
 

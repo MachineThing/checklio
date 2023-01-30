@@ -1,10 +1,10 @@
 import json
-import secrets
 from flask import Flask, request
+import item
 
 app = Flask(__name__)
 
-items = [{'value': 'Hello, world!', 'checked': False, 'id': secrets.token_urlsafe(16)}]
+items = [item.item("Hello, world!")]
 
 @app.route('/api', methods = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'])
 def get_data():
@@ -18,7 +18,7 @@ def get_data():
         return items
     if request.method == 'POST':
         data = json.loads(request.data.decode('utf-8'))['title']
-        items.append({'value': data, 'checked': False, 'id': secrets.token_urlsafe(16)})
+        items.append(item.item(data))
         print(items)
         return {'status': 'success'}
 
