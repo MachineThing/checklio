@@ -1,14 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom/client';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import './style/index.less';
 
 import { List } from './list.jsx';
+import { AlertsDisplay } from './popup.jsx';
 
 const App = () => {
+    const [alerts, setAlerts] = useState([]);
+
+    const addAlert = (type, msg) => {
+        setAlerts([...alerts, ...[{
+            "type": type,
+            "msg": msg
+        }]]);
+    }
+
     return(
-        <List />
+        <>
+            <List addAlert={addAlert}/>
+            <AlertsDisplay alerts={alerts}/>
+        </>
     );
 }
 
