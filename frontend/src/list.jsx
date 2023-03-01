@@ -19,7 +19,7 @@ const Title = (props) => {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({title: value})
-                }).then((data) => {props.update();});
+                }).then((data) => {props.update()}, (err) => {props.addAlert("danger", `Error when POSTing list item (${err})`)});
                 
                 setValue("");
             }} className="d-flex">
@@ -52,14 +52,14 @@ const ItemContainer = (props) => {
     return props.items.map(m => <Item key={m.id}>{m.value}</Item>)
 }
 
-export const List = () => {
+export const List = (props) => {
     // Get items
     const [items, setItems] = useState([]);
 
     const update = () => {
         fetchMan({
             method: 'GET'
-        }).then((data) => {setItems(data)});
+        }).then((data) => {setItems(data)}, (err) => {props.addAlert("danger", `Error getting list items (${err})`)});
     }
 
     // Fire once
@@ -70,7 +70,7 @@ export const List = () => {
     return(
         <div className="col-md-8 offset-md-2">
             <ul className="list-group">
-                <Title name="My List" update={update}></Title>
+                <Title name="My List" update={update} addAlert={props.addAlert}></Title>
                 <ItemContainer items={items}/>
             </ul>
         </div>
