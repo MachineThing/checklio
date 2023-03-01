@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 items = [item.item("Hello, world!")]
 
-@app.route('/api', methods = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'])
+@app.route('/api/', methods = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'])
 def get_data():
     # HTTP Method usage:
     # GET       - Get items
