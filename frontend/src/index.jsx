@@ -6,6 +6,7 @@ import './style/index.less';
 
 import { List } from './list.jsx';
 import { AlertsDisplay } from './popup.jsx';
+import { TitleBar } from './titlebar.jsx';
 
 const App = () => {
     const [alerts, setAlerts] = useState([]);
@@ -19,6 +20,7 @@ const App = () => {
 
     return(
         <>
+            <TitleBar/>
             <List addAlert={addAlert}/>
             <AlertsDisplay alerts={alerts}/>
         </>
