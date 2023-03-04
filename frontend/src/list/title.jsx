@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-import { fetchMan } from '../fetcher';
+import { fetchMan } from '../util/fetcher';
 
 export const Title = (props) => {
     // The title of the page, also holds the input form.

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
-import { fetchMan } from '../fetcher.js';
+import { fetchMan } from '../util/fetcher.js';
 import { ItemContainer } from './item.jsx';
 import { Title } from './title.jsx';
 
