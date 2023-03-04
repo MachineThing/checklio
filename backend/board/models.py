@@ -14,4 +14,6 @@ class Item(models.Model):
         }
 
     def __str__(self):
-        return self.value
+        # For the confused/uninitiated this is a ternary operator (or a one liner if statement)
+        # https://docs.python.org/3.10/reference/expressions.html#conditional-expressions
+        return f"{'🗹' if self.checked else '☐'} {self.value}"
