@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.css';
 import './style/index.less';
 
-import { List } from './list.jsx';
+import { List } from './list/list.jsx';
 import { AlertsDisplay } from './popup.jsx';
 import { TitleBar } from './titlebar.jsx';
 

@@ -3,7 +3,7 @@ import React from 'react';
 export const TitleBar = () => {
     return (
         <nav className="navbar navbar-expand-lg bg-light">
-            <div class="container-fluid">
+            <div className="container-fluid">
                 <a className="navbar-brand" href="#">Checklio</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#titlebarNav" aria-controls="titlebarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
