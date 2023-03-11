@@ -23,7 +23,7 @@ export const List = (props) => {
         <div className="col-md-8 offset-md-2">
             <ul className="list-group">
                 <Title name="My List" update={update} addAlert={props.addAlert}></Title>
-                <ItemContainer items={items}/>
+                <ItemContainer items={items} addAlert={props.addAlert}/>
             </ul>
         </div>
     );
