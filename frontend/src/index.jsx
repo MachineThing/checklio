@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 
 //import 'bootstrap/dist/css/bootstrap.css';
-//import './style/index.less';
 
 import { List } from './list/list.jsx';
 import { AlertsDisplay } from './popup.jsx';
@@ -27,7 +26,6 @@ const App = () => {
 }
 
 export default App
-
 /*
 const container = document.getElementById("root");
 const root = ReactDOM.createRoot(container);
