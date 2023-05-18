@@ -1,0 +1,28 @@
+.alert {
+    button {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background-color: transparent;
+        border: 0px;
+        width: 20px;
+        height: 20px;
+
+        svg {
+            transform: scale(0.5, 0.5);
+            position: absolute;
+            top: -10px;
+            left: -10px;
+
+            line {
+                stroke-width: 4px;
+                stroke: var(--bs-alert-color);
+                stroke-linecap: round;
+            }
+        }
+    }
+
+    p {
+        margin: 5px 0px 0px;
+    }
+}
