@@ -4,14 +4,14 @@ import { fetchMan } from '../util/fetcher.js';
 import { ItemContainer } from './item.jsx';
 import { Title } from './title.jsx';
 
-export const List = (props) => {
+export const List = () => {
     // Get items
     const [items, setItems] = useState([]);
 
     const update = () => {
         fetchMan({
             method: 'GET'
-        }).then((data) => {setItems(data)}, (err) => {props.addAlert("danger", `Error getting list items (${err})`)});
+        }).then((data) => {setItems(data)}, (err) => {console.error(`Error getting list items (${err})`)});
     }
 
     // Fire once

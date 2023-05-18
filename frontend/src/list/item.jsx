@@ -38,5 +38,5 @@ const Item = (props) => {
 
 export const ItemContainer = (props) => {
     // Item container for holding item components
-    return props.items.map(m => <Item key={m.id} id={m.id} checked={m.checked} addAlert={props.addAlert}>{m.value}</Item>)
+    return props.items.map(m => <Item key={m.id} id={m.id} checked={m.checked}>{m.value}</Item>)
 }
