@@ -19,7 +19,7 @@ export const Title = (props) => {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({title: value})
-                }).then((data) => {props.update()}, (err) => {props.addAlert("danger", `Error when POSTing list item (${err})`)});
+                }).then((data) => {props.update()}, (err) => {console.error(`Error when POSTing list item (${err})`)});
                 
                 setValue("");
             }} className="d-flex">

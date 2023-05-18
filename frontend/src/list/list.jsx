@@ -22,8 +22,8 @@ export const List = (props) => {
     return(
         <div className="col-md-8 offset-md-2">
             <ul className="list-group">
-                <Title name="My List" update={update} addAlert={props.addAlert}></Title>
-                <ItemContainer items={items} addAlert={props.addAlert}/>
+                <Title name="My List" update={update}></Title>
+                <ItemContainer items={items}/>
             </ul>
         </div>
     );

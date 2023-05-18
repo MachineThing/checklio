@@ -17,7 +17,7 @@ const Item = (props) => {
             })
         }).then((data) => {
             setCheckState(!checked)
-        }, (err) => {props.addAlert("danger", `Error sending PATCH request (${err})`)});
+        }, (err) => {console.error(`Error sending PATCH request (${err})`)});
     }
 
     return(

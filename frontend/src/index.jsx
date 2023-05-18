@@ -3,24 +3,13 @@ import React, {useState} from 'react';
 //import 'bootstrap/dist/css/bootstrap.css';
 
 import { List } from './list/list.jsx';
-import { AlertsDisplay } from './popup.jsx';
 import { TitleBar } from './titlebar.jsx';
 
 const App = () => {
-    const [alerts, setAlerts] = useState([]);
-
-    const addAlert = (type, msg) => {
-        setAlerts([...alerts, ...[{
-            "type": type,
-            "msg": msg
-        }]]);
-    }
-
     return(
         <React.StrictMode>
             <TitleBar/>
-            <List addAlert={addAlert}/>
-            <AlertsDisplay alerts={alerts}/>
+            <List/>
         </React.StrictMode>
     );
 }
